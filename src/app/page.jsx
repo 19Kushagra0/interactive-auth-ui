@@ -69,22 +69,30 @@ export default function page() {
 
   useEffect(() => {
     const getMe = async () => {
-      const response = await fetch("/api/me", {
-        method: "GET",
-      });
+      try {
+        const response = await fetch("/api/me", {
+          method: "GET",
+        });
 
-      if (!response.ok) {
+        if (!response.ok) {
+          setCheckingAuth(false);
+          return;
+        }
+
+        const data = await response.json();
+        console.log(data);
+
+        if (data.role === "manager") {
+          router.replace("/dashboard");
+        } else if (data.role === "shopkeeper") {
+          router.replace("/shop");
+        } else {
+          setCheckingAuth(false);
+        }
+      } catch (err) {
+        // Network error or fetch failure — still show the login form
+        console.error("Auth check failed:", err);
         setCheckingAuth(false);
-        return;
-      }
-
-      const data = await response.json();
-      console.log(data);
-
-      if (data.role === "manager") {
-        router.replace("/dashboard");
-      } else if (data.role === "shopkeeper") {
-        router.replace("/shop");
       }
     };
     getMe();
@@ -102,7 +110,7 @@ export default function page() {
     setUsername("");
     setPassword("");
 
-    const response = await fetch("api/login", {
+    const response = await fetch("/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
