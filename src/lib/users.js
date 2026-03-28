@@ -7,8 +7,8 @@ export const users = [
   },
   {
     id: 2,
-    email: "b",
-    password: "b",
+    email: "user",
+    password: "password",
     role: "shopkeeper",
   },
 ];

@@ -194,7 +194,10 @@ export default function page() {
         <div className="loginPage">
           <h1 className="loginTitle">Welcome Back!</h1>
           <p className="loginSubtitle">Sign in to continue</p>
-
+          <div className="credentialsHint">
+            <span className="credentialItem"><span className="credentialKey">username</span><span className="credentialVal">user</span></span>
+            <span className="credentialItem"><span className="credentialKey">password</span><span className="credentialVal">password</span></span>
+          </div>
           {/* Username */}
           <div className="fieldGroup">
             <label className="fieldLabel" htmlFor="username">
@@ -226,7 +229,6 @@ export default function page() {
               />
             </div>
           </div>
-
           {/* Password */}
           <div className="fieldGroup">
             <label className="fieldLabel" htmlFor="password">
@@ -258,9 +260,7 @@ export default function page() {
               />
             </div>
           </div>
-
           <div className="divider" />
-
           <button
             id="loginBtn"
             onClick={handleLogin}
@@ -274,10 +274,9 @@ export default function page() {
           >
             Log In
           </button>
-
-          <p className="loginFooter">
+          {/* <p className="loginFooter">
             Don&apos;t have an account? <span>Sign up</span>
-          </p>
+          </p> */}
         </div>
       </div>
     </div>
