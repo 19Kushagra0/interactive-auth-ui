@@ -209,6 +209,70 @@ top: 1%;
   letter-spacing: 0.04em;
 }
 
+/* =============================
+   CREDENTIALS HINT BOX
+   ============================= */
+.credentialsHint {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(249, 199, 79, 0.18);   /* warm yellow tint */
+  border: 2px solid var(--outline);
+  border-left: 4px solid var(--portal-green);
+  border-radius: 4px 12px 4px 12px / 8px 4px 8px 4px;
+  padding: 10px 14px;
+  position: relative;
+  margin-top: -6px;
+}
+
+/* "Demo Credentials" badge */
+.credentialsHint::before {
+  content: '🔑 Demo Credentials';
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--portal-dark);
+  margin-bottom: 6px;
+}
+
+.credentialItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.credentialKey {
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  min-width: 68px;
+}
+
+.credentialKey::after {
+  content: ' :';
+}
+
+.credentialVal {
+  font-family: 'Courier New', monospace;
+  font-weight: 800;
+  font-size: 0.88rem;
+  color: var(--portal-dark);
+  background: rgba(151, 206, 76, 0.18);
+  padding: 1px 7px;
+  border-radius: 3px;
+  border: 1.5px solid rgba(151, 206, 76, 0.5);
+  letter-spacing: 0.04em;
+}
+
 /* Field group */
 .fieldGroup {
   display: flex;
